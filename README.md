@@ -1,10 +1,9 @@
-## Tesseract 
+#### Tesseract 
 # Gave Dev Guild Website 
 
 <br />
 
-### Discription 
-<hr />
+## Discription 
 <p> This website  </p>
 
-#### Screenshots
+## Screenshots
