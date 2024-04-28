@@ -1,3 +1,3 @@
-##### Tesseract Website 
+#### Tesseract Website 
 
 ### Screenshots
