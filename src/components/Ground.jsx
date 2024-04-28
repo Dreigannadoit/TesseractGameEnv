@@ -1,14 +1,11 @@
 import { usePlane } from '@react-three/cannon'
 
 const Ground = () => {
-    const [ref, api] = usePlane(() => ({
+    const [ref] = usePlane(() => ({
 		rotation: [-Math.PI / 2, 0, 0],
 	}));
 	return (
 		<mesh 
-            onClick={() => {
-                api.velocity.set(0, 2, 0)
-            }}
             ref={ref} 
             rotation={[-Math.PI / 2, 0, 0]}
         >
