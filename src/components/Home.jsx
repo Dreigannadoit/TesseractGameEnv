@@ -1,39 +1,30 @@
-import { createRoot } from 'react-dom/client'
+
 import { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, Stars } from '@react-three/drei'
+import { Physics, useBox, usePlane } from '@react-three/cannon'
+import Player from './Player'
+import Ground from './Ground'
 
-import React from 'react'
-
-const Box = (props) => {
-    const meshRef = useRef()
-    // Set up state for the hovered and active state
-    const [hovered, setHover] = useState(false)
-    const [active, setActive] = useState(false)
-    // Subscribe this component to the render-loop, rotate the mesh every frame
-    useFrame((state, delta) => (meshRef.current.rotation.x += delta))
-
-  return (
-    <mesh
-      {...props}
-      ref={meshRef}
-      scale={active ? 1.5 : 1}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-    </mesh>
-  )
-}
 
 const Home = () => {
   return (
-    <Canvas>
-        <ambientLight intensity={Math.PI / 2} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
-        <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
+    <Canvas camera={{ fov: 45, position: [0, 5, 10] }}>
+        <OrbitControls target={[0, 0, 0]} />
+        <ambientLight intensity={1.5} />
+        <Stars />
+        <spotLight 
+            position={[10, 15, 10]}
+            angle={0.3}
+            penumbra={1}
+            intensity={500}
+            castShadow
+            shadow-mapSize={1024}
+        />
+        <Physics>
+            <Player />
+            <Ground />
+        </Physics>
     </Canvas>
   )
 }
