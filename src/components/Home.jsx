@@ -1,32 +1,42 @@
+import { KeyboardControls, Stars } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { Physics } from "@react-three/rapier";
+import { Suspense, useMemo } from "react";
+import Player from "./Player";
 
-import { useRef, useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars } from '@react-three/drei'
-import { Physics, useBox, usePlane } from '@react-three/cannon'
-import Player from './Player'
-import Ground from './Ground'
-
+export const Controls = {
+    forward: "forward",
+    back: "back",
+    left: "left",
+    right: "right",
+    jump: "jump",
+};
 
 const Home = () => {
-  return (
-    <Canvas camera={{ fov: 45, position: [0, 5, 10] }}>
-        <OrbitControls target={[0, 0, 0]} />
-        <ambientLight intensity={1.5} />
-        <Stars />
-        <spotLight 
-            position={[10, 15, 10]}
-            angle={0.3}
-            penumbra={1}
-            intensity={500}
-            castShadow
-            shadow-mapSize={1024}
-        />
-        <Physics>
-            <Player />
-            <Ground />
-        </Physics>
-    </Canvas>
-  )
+    const map = useMemo(
+        () => [
+          { name: Controls.forward, keys: ["ArrowUp", "KeyW"] },
+          { name: Controls.back, keys: ["ArrowDown", "KeyS"] },
+          { name: Controls.left, keys: ["ArrowLeft", "KeyA"] },
+          { name: Controls.right, keys: ["ArrowRight", "KeyD"] },
+          { name: Controls.jump, keys: ["Space"] },
+        ],
+        []
+      );
+    
+      return (
+        <KeyboardControls map={map}>
+          <Canvas shadows camera={{ position: [10, 10, 10], fov: 30 }}>
+            <color attach="background" args={["#2A0F49"]} />
+            <Stars />
+            <Suspense fallback={null}>
+              <Physics debug gravity={[0, -9.8, 0]}>
+                <Player />
+              </Physics>
+            </Suspense>
+          </Canvas>
+        </KeyboardControls>
+      );
 }
 
 
