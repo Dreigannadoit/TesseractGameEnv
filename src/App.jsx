@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
-import Home from "./components/Home"
+import Main from "./components/Main"
 
 const App = () => {
   return (
@@ -7,7 +7,7 @@ const App = () => {
         <Router>
             <Routes>
                 {/* <Route path="/" element={< />} /> */}
-                <Route path="/"  element={<Home/>} />
+                <Route path="/"  element={<Main/>} />
             </Routes>
         </Router>
     </main>
