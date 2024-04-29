@@ -3,6 +3,10 @@
 
 <br />
 
+![Game Dev Logo](https://scontent.fdvo1-1.fna.fbcdn.net/v/t1.15752-9/432712624_770254998504652_444140669083886677_n.png?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFzfyzmKolC2v6_Pg0vLF2LxqyFVhRCsUHGrIVWFEKxQTLIJpVA54NDpu1z0Osb3ztzFi09CRG-M9RGZDaivL-D&_nc_ohc=mJPllwz-_wEQ7kNvgHnzFei&_nc_ht=scontent.fdvo1-1.fna&oh=03_Q7cD1QEsa5Z1Isp1aV2_nw7YMBKj1rrTAReFcHlQzGg_JTwHCg&oe=6656A3A3 "Game Dev Logo")
+
+![Tesseract lOGO](https://scontent.xx.fbcdn.net/v/t1.15752-9/4313872…YSQInd-ne32iYca4B1w7XtRmov3gxY1VRyMRw&oe=6656A6D9 "Tesseract lOGO")
+
 ## Discription 
 <p> This website contains information regarding th Tesseract - Game Dev. Guild. It is built with vite and react-three-fiber. </p>
 
