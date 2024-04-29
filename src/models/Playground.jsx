@@ -16,6 +16,7 @@ export function Playground() {
         lockRotations
         position={[0, -2, 0]} 
         rotation={[angleToRadians(-90), 0, 0]} 
+        friction={7}
       >
         {/* 3D mesh representing the ground */}
         <mesh receiveShadow> 
@@ -24,7 +25,7 @@ export function Playground() {
         </mesh>
       </RigidBody>
 
-      <pointLight position={[0, 10, 0]} /> 
+      <spotLight position={[0, 50, 0]} intensity={10000} castShadow /> 
     </>
   );
 }

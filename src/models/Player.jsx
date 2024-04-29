@@ -19,7 +19,7 @@ export const Player = ({
   let theta = 0; // Vertical angle of the camera's orientation.
 
   // Declare reusable, non-persistent variables (avoiding recreation every frame).
-  const speed = new Vector3(walk / 2, jump, walk); // Vector representing the player's movement speed.
+  const speed = new Vector3(walk / 4, jump, walk); // Vector representing the player's movement speed.
   const offset = new Vector3(0, 0, 0); // Vector used to calculate the player's movement based on user input.
   const gaze = new Quaternion(); // Quaternion representing the direction the player character is looking at.
   const yaw = new Quaternion(); // Quaternion controlling horizontal rotations of the player's camera.
@@ -29,18 +29,17 @@ export const Player = ({
   const yAxis = new Vector3(0, 1, 0); // Vector representing the world's y-axis.
   const xAxis = new Vector3(1, 0, 0); // Vector representing the world's x-axis.
   const raycaster = new Raycaster(new Vector3(0, 0, 0), down, 0, 2); // Raycaster for ground collision detection.
-  const slope = new Vector3(0, 1, 0); // Vector representing the slope of the ground surface.
 
   // Function to update the player's camera orientation based on user input.
   const updateOrientation = ([x, y]) => {
-    const cameraSpeed = 3; // Speed factor for camera movement.
+    const cameraSpeed = 0; // Speed factor for camera movement.
     const step = 0.3; // Step for smooth interpolation of camera orientation changes.
     phi = lerp(phi, -x * cameraSpeed, step); // Interpolate horizontal camera rotation.
-    theta = lerp(theta, -y * cameraSpeed, step); // Interpolate vertical camera rotation.
+    theta = lerp(theta, 0, step); // Interpolate vertical camera rotation.
     theta = clamp(theta, -Math.PI / 3, Math.PI / 3); // Clamp vertical rotation within limits.
 
-    yaw.setFromAxisAngle(yAxis, phi); // Set the yaw quaternion based on horizontal rotation.
-    pitch.setFromAxisAngle(xAxis, theta); // Set the pitch quaternion based on vertical rotation.
+    yaw.setFromAxisAngle(yAxis, 2); // Set the yaw quaternion based on horizontal rotation.
+    pitch.setFromAxisAngle(xAxis, -0.7); // Set the pitch quaternion based on vertical rotation.
     gaze.multiplyQuaternions(yaw, pitch).normalize(); // Combine yaw and pitch to get the gaze direction.
   };
 
@@ -61,13 +60,13 @@ export const Player = ({
     offset
       .fromArray(move)
       .normalize()
-      .multiply(running ? speed.clone().multiplyScalar(2.5) : speed)
+      .multiply(running ? speed.clone().multiplyScalar(0.5) : speed)
       .applyQuaternion(yaw);
 
     api.current.applyImpulse(offset, true);
 
     // Set camera position and rotation
-    const newPosition = new THREE.Vector3(position.x, position.y, position.z);
+    const newPosition = new THREE.Vector3(position.x+6, position.y +10, position.z-3);
     camera.position.copy(newPosition.add(cameraOffset.clone().applyQuaternion(yaw)));
     camera.quaternion.copy(gaze);
   });
@@ -80,8 +79,8 @@ export const Player = ({
       restitution={0.5}
       colliders="ball"
     >
-      <mesh ref={mesh} userData={{ tag: "player" }} castShadow>
-        <meshPhysicalMaterial metalness={0.5} roughness={0} />
+      <mesh ref={mesh} userData={{ tag: "player" }} castShadow receiveShadow>
+        <meshPhysicalMaterial metalness={0.5} roughness={1} />
         <sphereGeometry args={[1, 16, 16]} />
       </mesh>
     </RigidBody>

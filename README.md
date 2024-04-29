@@ -7,11 +7,16 @@
 <p> This website contains information regarding th Tesseract - Game Dev. Guild. It is built with vite and react-three-fiber. </p>
 
 ## Screenshots
+![Ver 1.0](https://github.com/Dreigannadoit/Photos/blob/main/04_18_2023.gif?raw=true "Ver 1.0")
+![Ver 1.0.1](https://github.com/Dreigannadoit/Photos/blob/main/04_20_2023.gif?raw=true "Ver 1.0.1")
+![Ver 1.1](https://github.com/Dreigannadoit/Photos/blob/main/04_29_2023.gif?raw=true "Ver 1.1.1")
 
 ## Resources:
 
 - [react-three-fiber documentation](https://docs.pmnd.rs/react-three-fiber/tutorials/how-it-works)
 - [react-three-rapier source](https://github.com/pmndrs/react-three-rapier)
+- [react-three-rapier doc](https://pmndrs.github.io/react-three-rapier/interfaces/RigidBodyOptions.html)
+- [react-three-drei source](https://github.com/pmndrs/drei)
 - [Daniel Bark - Build a 3D World in React with Three.js](https://www.youtube.com/watch?v=FGG0EeMNUl0)
 - [Daniel Bark - react-three-fiber-example Documentation](https://github.com/danba340/react-three-fiber-example)
 - [Bruno Simon - portfolio source code](https://github.com/brunosimon/folio-2019/tree/master)

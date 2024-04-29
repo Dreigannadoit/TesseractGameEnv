@@ -1,6 +1,6 @@
-import { Environment, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber"; 
-import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier"; 
+import { Physics} from "@react-three/rapier"; 
 import { Suspense } from "react"; 
 import { InteractableObjects } from "../models/InteractableObjects";
 import { Playground } from "../models/Playground"; 
@@ -35,7 +35,7 @@ const Scene = () => {
       <InteractableObjects position={[7, 8, 0]} />
       <InteractableObjects position={[6, 15, 0]} /> 
       <Playground /> 
-      <Player walk={2} jump={5} input={() => getInput(keyboard, mouse)} />
+      <Player walk={2} jump={5} input={() => getInput(keyboard, mouse)}/>
     </group>
   );
 };
@@ -43,9 +43,9 @@ const Scene = () => {
 // Add Physics to scene
 const Main = () => {
   return (
-    <Canvas style={{ width: "100vw", height: "100vh" }}  shadows>
+    <Canvas shadows>
       <Suspense fallback={null}> 
-        <Physics debug gravity={[0, -15.8, 0]}>
+        <Physics debug gravity={[0, -15.8, 0]} interpolation={false} colliders={false}>
           <Scene /> 
         </Physics>
         <Stars preset="studio" background /> 
