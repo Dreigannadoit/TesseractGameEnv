@@ -19,19 +19,10 @@ export function useMouseCapture() {
   };
 
   // Function to request pointer lock (capture mouse)
-  const capture = () => {
-    // Ask the browser to lock the pointer
-    document.body.requestPointerLock =
-      document.body.requestPointerLock ||
-      document.body.mozRequestPointerLock ||
-      document.body.webkitRequestPointerLock;
-    document.body.requestPointerLock();
-  };
 
   useEffect(() => {
     // Add event listeners for mouse movement and click
     document.addEventListener("mousemove", mouseMove);
-    document.addEventListener("click", capture);
 
     // Clean up the event listeners when the component unmounts
     return () => {

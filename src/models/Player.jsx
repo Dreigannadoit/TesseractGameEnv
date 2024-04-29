@@ -79,9 +79,9 @@ export const Player = ({
       restitution={0.5}
       colliders="ball"
     >
-      <mesh ref={mesh} userData={{ tag: "player" }} castShadow receiveShadow>
+      <mesh ref={mesh} userData={{ tag: "player" }} castShadow receiveShadow >
         <meshPhysicalMaterial metalness={0.5} roughness={1} />
-        <sphereGeometry args={[1, 16, 16]} />
+        <sphereGeometry args={[1, 16, 16]}  />
       </mesh>
     </RigidBody>
   );

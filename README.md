@@ -29,3 +29,4 @@
 - [Wawa Sensei - Rapier Physics Engine](https://www.youtube.com/watch?v=OpYtwrtpePY) 
 - [Wawa Sensei - Rapier Physics Engine Documentation](https://github.com/wass08/r3f-vite-starter) 
 - [Mohamd Almahdi - Camera and Movement System](https://medium.com/@m.mhde96/react-three-fiber-third-person-control-a0476c189dd1)
+- [eract-three-fiber shadow docs](https://sbcode.net/react-three-fiber/shadows/)
