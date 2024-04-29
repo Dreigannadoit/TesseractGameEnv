@@ -10,9 +10,6 @@
 #### version 0
 ![Ver 0](https://github.com/Dreigannadoit/Photos/blob/main/04_18_2023.gif?raw=true "Ver 0")
 
-#### version 1.01
-![Ver 1.0.1](https://github.com/Dreigannadoit/Photos/blob/main/04_20_2023.gif?raw=true "Ver 1.0.1")
-
 #### version 1.1
 ![Ver 1.1](https://github.com/Dreigannadoit/Photos/blob/main/04_29_2023.gif?raw=true "Ver 1.1")
 
